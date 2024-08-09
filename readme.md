@@ -12,7 +12,7 @@ Este é um projeto PHP simples usando Docker, com Apache e MySQL.
 
 2. Execute o Docker Compose
    
-    sudo docker-compose up --build -d
+    sudo docker compose up --build -d
    
 
 3. Acesse o site no navegador
