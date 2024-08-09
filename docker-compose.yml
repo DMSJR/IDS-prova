@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: biblioteca
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+    deploy:
+      resources:
+        limits:
+          memory: 300M
+          cpus: "1.00"
+
+  db:
+    image: mysql:8.0
+    container_name: my_mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: senha_da_nasa
+      MYSQL_DATABASE: ids
+      MYSQL_USER: user
+      MYSQL_PASSWORD: senha_da_nasa
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db_init:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+          cpus: "1.00"
+
+volumes:
+  db_data:
+
+networks:
+  app-network:
+    driver: bridge
