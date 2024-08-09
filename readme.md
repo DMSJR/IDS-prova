@@ -7,6 +7,7 @@ Este é um projeto PHP simples usando Docker, com Apache e MySQL.
 1. Clone o repositório
     
     git clone https://github.com/DMSJR/IDS-prova.git
+
     cd IDS-prova
     
 
@@ -16,10 +17,6 @@ Este é um projeto PHP simples usando Docker, com Apache e MySQL.
    
 
 3. Acesse o site no navegador
-    - [httplocalhost](httplocalhost)
+    
 
-## Estrutura do Projeto
 
-- `src` Contém os arquivos PHP do site.
-- `db_init` Contém os scripts SQL para criar o banco de dados e as tabelas.
-- `docker-compose.yml` Arquivo de configuração do Docker Compose.
