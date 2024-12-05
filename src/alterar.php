@@ -27,7 +27,7 @@ $registroLivro = $stmt->fetch();
                 <div id="event-create-container" class="col-md-6 offset-md-3">
                     <h1>Editar livro</h1>
                     <form action="/destino-alterar.php" method="POST">
-
+                        <input type="hidden" name="id" value="<?= $id ?>">
                         <div class="form-group text-start mb-3">
                             <label for="title">Título:</label>
                             <input type="text" class="form-control" id="title" name="title" required value="<?=$registroLivro["title"]?>">
@@ -36,7 +36,7 @@ $registroLivro = $stmt->fetch();
                             <label for="author">Autor:</label>
                             <input type="text" class="form-control" id="author" name="author" required value="<?=$registroLivro["author"]?>">
                         </div>
-
+                        
 
                         <input type="submit" class="btn btn-primary btn-cadastrar" value="Cadastrar livro">
                     </form>

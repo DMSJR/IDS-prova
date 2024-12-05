@@ -19,7 +19,7 @@ require 'header.php'
                     <?php
                     $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_SPECIAL_CHARS);
                     $author = filter_input(INPUT_POST, "author", FILTER_SANITIZE_SPECIAL_CHARS);
-
+                    $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT);
 
                     echo "<p>Titulo: $title</p>";
                     echo "<p>Autor: $author</p>";
@@ -27,11 +27,11 @@ require 'header.php'
 
                     require "conexao.php";
 
-                     $sql = "update livro SET title = ?, author = ?";
+                     $sql = "update livro SET title = ?, author = ? where ID = ?";
 
                     try {
                         $stmt = $conn->prepare($sql);
-                        $result = $stmt->execute([$title, $author]);
+                        $result = $stmt->execute([$title, $author, $id]);
                     } catch (Exception $e) {
                         $result = false;
                         $error = $e->getMessage();
